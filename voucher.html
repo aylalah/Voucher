@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>voucher</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="bootstrap4/css/bootstrap.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+		<div align="center" style="margin-top: 150px">
+			<input type="text" name="gen" id="gen"><button onclick="genrt()" type="button" name="Genetrat">Generate</button><br><br><br>
+			<div id="show"></div><div><button onclick="send()">send</button></div>
+			
+
+		</div>
+	</div>
+
+</body>
+</html>
+
+	<script type="text/javascript">
+		var a=localStorage.jtcard;
+		var cardlist=[] 
+		function genrt()
+		{ 
+			
+			var gvalue=gen.value;
+			for(v=1; v<=gvalue; v++)
+			{
+				var c=""; 
+				for(i=1; i<=16; i++)
+				{ 
+					r=Math.random()*9;
+					k=Math.round(r);
+					c+=k; 
+				}	
+				var k=c
+
+				cardlist.push(k);
+			}
+			 var str=JSON.stringify(cardlist);
+			 document.getElementById('show').innerHTML=cardlist.join("<br>");
+			 localStorage.setItem("jtcard",str);
+
+
+
+			
+
+		}
+
+		function send()
+		{
+			
+
+		}
+		
+	</script>
